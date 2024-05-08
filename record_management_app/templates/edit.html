@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Update the Records{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/update/{{employee.id}}">
+        {% csrf_token %}
+        <div class="container">
+            <div class="col-12">
+                <h3>Update Details</h3>
+            </div>
+            <div class="mb-3">
+                <label>Company Name:</label>
+                <input type="text" class="form-control" name="company_name" id="id_name" required maxlength="100"
+                    value="{{ employee.company_name }}" />
+            </div>
+            <div class="mb-3">
+                <label>Email:</label>
+                <input type="email" class="form-control" name="email" id="id_email" required maxlength="254"
+                    value="{{ employee.email }}" />
+            </div>
+            <div class="mb-3">
+                <label>company_code:</label>
+                <input type="text" class="form-control" name="company_code" id="id_contact" required maxlength="15"
+                    value="{{ employee.company_code }}" />
+            </div>
+            <div class="mb-3">
+                <label>strength:</label>
+                <input type="text" class="form-control" name="strength" id="id_contact" required maxlength="15"
+                    value="{{ employee.strength }}" />
+            </div>
+            <div class="mb-3">
+                <label>website:</label>
+                <input type="text" class="form-control" name="website" id="id_contact" required maxlength="15"
+                    value="{{ employee.website }}" />
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success btn-lg">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
